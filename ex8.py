@@ -1,0 +1,23 @@
+total_cost = float(input("Total cost of the house"))
+portion_deposit = 0.20
+current_savings = 0
+r = 0.04
+current_savings = current_savings*r/12
+
+annual_salary= float(input("Enter the starting annual salary:"))
+portion_saved= float(input("How much money do you want to save?"))
+semi_annual_raise=float(input("What is your semi-annual raise (decimal): "))
+monthly_salary= annual_salary/12
+
+deposit_payment = total_cost*portion_deposit
+months = 0
+
+while current_savings < total_cost*portion_deposit:
+    current_savings += (current_savings*(r/12))
+    current_savings +=(annual_salary/12) * portion_saved
+    months += 1
+    if months %6 == 0:
+        annual_salary*= (1+ semi_annual_raise)
+
+
+print("Number of months:", months)
