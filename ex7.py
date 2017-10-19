@@ -9,4 +9,4 @@ portion_saved= float(input("How much money do you want to save?"))
 
 months _required = ((portion_deposit * total_cost) / ((monthly_salary * portion_saved) + monthly_interest))
 
-print("Number of months:")
+print("Number of months:" , months_required)
