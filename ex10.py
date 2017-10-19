@@ -16,7 +16,7 @@ for a in range (x,y+1):
         print ("Fizz")
     elif a % 5 == 0:
         print ("Buzz")
-        
+
     else: print(a)
 
 FizzBuzz:(x,y)
