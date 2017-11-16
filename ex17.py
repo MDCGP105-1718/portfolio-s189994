@@ -16,14 +16,18 @@ class Car(object):
         return str (self.doors , self.model, self.manufacturer, self.colour)
 
     def drive_car(self):
-        print("car is moving, vroom!")
+        print("car is moving!")
 
     def change_paint(self, colour):
         self.colour = colour
 
-mustang = Car(4, 'Mustang', 'Ford', 'red')
+    def lock_car(self):
+        print("you can't open the car now, muahahaha!")
 
-print(mustang.colour)
+    def make_car_sound():
+        print ("Vroom!")
+
+mustang = Car(4, 'Mustang', 'Ford', 'red')
 
 mustang.change_paint("blue")
 print(mustang.colour)
