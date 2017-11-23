@@ -54,8 +54,11 @@ def is_word_guessed(secret_word, letters_guessed):
     returns: boolean, True if all the letters of secret_word are in letters_guessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    count = 0
+    for letter in secret_word:
+        if letter in letters_guessed:
+            count += 1
+    return count
 
 
 
@@ -66,7 +69,7 @@ def get_guessed_word(secret_word, letters_guessed):
     returns: string, comprised of letters, underscores (_), and spaces that represents
       which letters in secret_word have been guessed so far.
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
+
     pass
 
 
@@ -110,5 +113,4 @@ def hangman(secret_word):
     # FILL IN YOUR CODE HERE AND DELETE "pass"
     pass
 
-    secret_word = choose_word(wordlist)
-    hangman(secret_word)
+    print (is_word_guessed("monkey" , ['m' , 'o', 'n' , 'k' , 'e' , 'y'])
