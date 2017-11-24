@@ -15,37 +15,62 @@ class Card(object):
     def __str__(self):
         return Card.values[self.value] + ' of ' + Card.suits[self.suit]
 
+    def __str__(self):
+        return self.get_value() + ' of ' + self.get_suit()
+
+    __repr__ = __str__
+
+def get_card_shuffle(card):
+    
+   return card.shuffle
+
 card = Card(0, 5)
 print(card)
 #we introduce another class (different from the other one. It also concludes suits and values.)
 class Deck(object):
 
-    def __init__(self):
-        self.deck=[] #we put an empty value because that way (from the next 4 lines) we will add cards in it (randomly)
-
+   def __init__(self):
+        self.cards = []
+        self.current_card = 0
         for suit in range(4):
-            for value in range(0, 13):
-                card = Card(suit, value) #we define card
-                self.deck.append(card)
+            for value in range(13):
+                self.cards.append(Card(suit, value))
 
     def shuffle(self):
-        import random
+        self.cards.sort(key=get_card_shuffle)
+        self.current_card = 0
 
-        number_cards = len(self.cards)
-        for i in range(num_cards):
-            j = random.randrange(i, num_cards)
-            self.cards[i], self.cards[j] = self.cards[j], self.cards[i]
+    def deal_hand(self, hand, number_to_deal):
+        if self.current_card + number_to_deal >= len(self.cards):
+            return
+
+        # loop through the deck for number_to_deal times
+        for i in range(self.current_card, self.current_card + number_to_deal):
+            # each loop will call hand.add_card
+            hand.add_card(self.cards[i])
+            self.current_card += 1
 
 deck = Deck()
-card = deck.deck[random.randint(0,51)]
-print(card)
+deck.shuffle()
 
 class Hand(Deck):
 
+def __init__(self):
+        self.cards = []
+
     def add_card(self, card):
-        self.hand.append(card)
-        return self.hand
+        self.cards.append(card)
 
     def get_value(self):
         aces = 0
         value = 0
+
+hand = Hand()
+deck.deal_hand(hand, 5)
+
+hand2 = Hand()
+deck.deal_hand(hand2, 5)
+
+print(hand.cards)
+print(hand2.cards)
+
